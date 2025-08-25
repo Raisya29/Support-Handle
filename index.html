@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Handle | Pegangan Hisap Premium untuk Kamar Mandi & Rumah</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkGreen: '#1b4332',
+                        forestGreen: '#2d5a3d',
+                        gold: '#d4af37',
+                        cream: '#f5f5dc',
+                        accentWhite: '#ffffff'
+                    },
+                    fontFamily: {
+                        heading: ['Cormorant Garamond', 'serif'],
+                        body: ['Open Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Open+Sans:wght@300;400;500;600;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333;
+            background-color: #f5f5dc;
+            overflow-x: hidden;
+        }
+        
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px rgba(27, 67, 50, 0.15);
+        }
+        
+        .product-shadow {
+            box-shadow: 0 25px 50px -12px rgba(27, 67, 50, 0.25);
+        }
+        
+        .scroll-hidden {
+            scrollbar-width: none;
+        }
+        
+        .scroll-hidden::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .slide-in-right {
+            animation: slideInRight 0.6s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideInRight {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+        
+        .zoom-on-hover {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .zoom-on-hover:hover {
+            transform: scale(1.03);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+        
+        .testimonial-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        
+        .testimonial-thumbnail {
+            width: 80px;
+            height: 80px;
+            border-radius: 8px;
+            object-fit: cover;
+            cursor: pointer;
+        }
+        
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .bounce {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-15px);}
+            60% {transform: translateY(-7px);}
+        }
+        
+        .social-proof-popup {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 999;
+            max-width: 320px;
+            background: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            border-left: 4px solid #d4af37;
+            display: none;
+        }
+        
+        .progress-bar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            height: 4px;
+            background: #2d5a3d;
+            animation: progressBar 5s linear forwards;
+        }
+        
+        @keyframes progressBar {
+            0% { width: 100%; }
+            100% { width: 0; }
+        }
+        
+        .order-form-glass {
+            background: rgba(245, 245, 220, 0.7);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+        }
+        
+        .custom-input {
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+            padding: 12px 15px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+        
+        .custom-input:focus {
+            outline: none;
+            border-color: #d4af37;
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+        }
+        
+        .btn-primary {
+            background: linear-gradient(to right, #1b4332, #2d5a3d);
+            color: white;
+            border-radius: 8px;
+            padding: 14px 24px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 6px rgba(27, 67, 50, 0.2);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 14px rgba(27, 67, 50, 0.3);
+        }
+        
+        .sticky-cta {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); }
+            70% { box-shadow: 0 0 0 12px rgba(212, 175, 55, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); }
+        }
+        
+        .dot-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255,255,255,0.5);
+            margin: 0 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .dot-indicator.active {
+            background-color: white;
+        }
+    </style>
+</head>
+<body class="bg-cream">
+    <!-- Social Proof Popup -->
+    <div id="social-proof" class="social-proof-popup slide-in-right">
+        <div class="progress-bar"></div>
+        <div class="flex items-center">
+            <div class="mr-3">
+                <div class="bg-gray-200 border-2 border-dashed rounded-xl w-10 h-10"></div>
+            </div>
+            <div class="flex-1">
+                <p class="text-sm text-gray-800 font-medium" id="social-proof-text">
+                    <span id="customer-name">Customer Name</span> dari <span id="customer-city">Jakarta</span> baru saja memesan Support Handle
+                </p>
+                <p class="text-xs text-gray-500 mt-1">
+                    <i class="fas fa-clock mr-1"></i> <span id="customer-time">Sekitar 5 menit yang lalu</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Header / Nav -->
+    <header class="bg-darkGreen text-white sticky top-0 z-50 shadow-lg">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="font-heading text-xl font-bold tracking-wider">Bestbrand Shop</div>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#keunggulan" class="hover:text-gold transition-colors">Keunggulan</a>
+                <a href="#fitur" class="hover:text-gold transition-colors">Fitur</a>
+                <a href="#testimoni" class="hover:text-gold transition-colors">Testimoni</a>
+                <a href="#harga" class="hover:text-gold transition-colors">Harga</a>
+                <a href="#pesan" class="hover:text-gold transition-colors">Pesan</a>
+            </div>
+            
+            <div class="flex items-center">
+                <div class="bg-red-500 text-white text-xs px-2 py-1 rounded-full font-bold animate-pulse">
+                    Stok <span id="stock-count">9</span> pcs tersisa
+                </div>
+                
+                <button class="ml-4 md:hidden">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-darkGreen/20 to-darkGreen/70 z-0"></div>
+        <img src="https://cdn.cloudfastcdn.com/image/23960d388bc9ce59420fedf66552f9f1b1fae5d1-600.png" alt="Support Handle" class="absolute inset-0 w-full h-full object-cover z-0 opacity-20">
+        
+        <div class="container mx-auto px-4 py-16 relative z-10">
+            <div class="max-w-5xl mx-auto text-center">
+                <div class="bg-white/80 inline-block px-4 py-2 rounded-full mb-4 shadow">
+                    <span class="text-forestGreen font-semibold">🎯 REKOMENDASI SPESIALIS KAMAR MANDI</span>
+                </div>
+                
+                <h1 class="font-heading text-5xl md:text-6xl lg:text-7xl font-bold text-darkGreen mb-6">
+                    Support Handle
+                </h1>
+                
+                <h2 class="text-xl md:text-2xl text-forestGreen mb-8 max-w-3xl mx-auto">
+                    Pegangan hisap premium untuk kamar mandi & rumah tanpa bor dan ribet!
+                </h2>
+                
+                <!-- Video Container -->
+                <div class="relative overflow-hidden rounded-2xl mb-8 product-shadow max-w-4xl mx-auto">
+                    <div class="aspect-w-16 aspect-h-9">
+                        <video controls poster="https://cdn.cloudfastcdn.com/image/23960d388bc9ce59420fedf66552f9f1b1fae5d1-600.png" class="w-full">
+                            <source src="https://down-ws-sg.vod.susercontent.com/api/v4/11110105/mms/sg_e9f94a7f-e6ca-4803-a42b-5fc496db9982_000093.16003251739262956.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="bg-gold hover:bg-forestGreen transition-colors text-white rounded-full w-16 h-16 flex items-center justify-center shadow-lg opacity-90">
+                            <i class="fas fa-play text-xl"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Pricing & CTA -->
+                <div class="glass-card rounded-xl p-6 mb-8 inline-block">
+                    <div class="flex items-center justify-center space-x-6 mb-4">
+                        <div class="text-center">
+                            <div class="text-sm text-gray-500">Harga Normal</div>
+                            <div class="text-xl line-through font-medium">Rp 217.000</div>
+                        </div>
+                        
+                        <div class="text-center">
+                            <div class="text-sm text-forestGreen font-bold">Harga Hari Ini</div>
+                            <div class="text-3xl font-bold text-gold">Rp 174.000</div>
+                        </div>
+                    </div>
+                    
+                    <p class="text-red-600 font-semibold mb-4">
+                        ⏳ Stok hanya tinggal <span id="hero-stock-count">9</span> pcs!
+                    </p>
+                    
+                    <a href="#pesan" class="btn-primary inline-block font-medium">
+                        <i class="fas fa-shopping-cart mr-2"></i> Pesan Sekarang
+                    </a>
+                </div>
+                
+                <!-- Trust Badges -->
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-4xl mx-auto text-sm">
+                    <div class="flex items-center bg-white/80 rounded-lg p-3">
+                        <i class="fas fa-shipping-fast text-gold mr-2"></i>
+                        <span>Pengiriman Cepat</span>
+                    </div>
+                    <div class="flex items-center bg-white/80 rounded-lg p-3">
+                        <i class="fas fa-shield-alt text-gold mr-2"></i>
+                        <span>Garansi 1 Minggu</span>
+                    </div>
+                    <div class="flex items-center bg-white/80 rounded-lg p-3">
+                        <i class="fas fa-clock text-gold mr-2"></i>
+                        <span>Pembayaran Mudah</span>
+                    </div>
+                    <div class="flex items-center bg-white/80 rounded-lg p-3">
+                        <i class="fas fa-box text-gold mr-2"></i>
+                        <span>Original Produk</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Live Visitors Counter -->
+        <div class="absolute bottom-4 left-4 bg-white/90 rounded-lg py-1 px-3 flex items-center shadow">
+            <span class="w-3 h-3 bg-red-500 rounded-full animate-pulse mr-2"></span>
+            <span class="text-sm text-darkGreen">👥 <span id="visitor-count">124</span> orang sedang melihat produk ini</span>
+        </div>
+    </section>
+
+    <!-- Product Gallery -->
+    <section class="py-16 bg-gradient-to-b from-cream to-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-4xl text-darkGreen mb-4">Desain Premium Berkualitas Tinggi</h2>
+                <p class="text-xl text-forestGreen max-w-3xl mx-auto">Pegangan hisap dengan kualitas terbaik untuk keamanan dan kenyamanan keluarga</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg zoom-on-hover">
+                    <img src="https://cdn.cloudfastcdn.com/image/34739a3d2af44b038ea13db358bf89aa53f41e34.gif" alt="Support Handle Gif" class="w-full h-64 object-cover">
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg zoom-on-hover">
+                    <img src="https://cdn.cloudfastcdn.com/image/ebde24c7fab482aa8dd3602ad5740b4d0a72076d.webp" alt="Support Handle di kamar mandi" class="w-full h-64 object-cover">
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg zoom-on-hover">
+                    <img src="https://cdn.cloudfastcdn.com/image/17a206e1c279e343b9985ca5d91f9e9e94d90672-600.png" alt="Support Handle model" class="w-full h-64 object-cover">
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg zoom-on-hover">
+                    <img src="https://cdn.cloudfastcdn.com/image/6cf377394cd6a68f6c0bdbe6f4ef15eed0ac98ad-600.png" alt="Support Handle close up" class="w-full h-64 object-cover">
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg zoom-on-hover">
+                    <img src="https://cdn.cloudfastcdn.com/image/72304b03c95c9726a6693a60afba2d292c166749-600.png" alt="Support Handle packaging" class="w-full h-64 object-cover">
+                </div>
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg zoom-on-hover">
+                    <img src="https://cdn.cloudfastcdn.com/image/e59be6e74a11a78f6e4bd84567072145e68f7a0a.jpeg" alt="Support Handle di kaca" class="w-full h-64 object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="keunggulan" class="py-16 bg-darkGreen text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl mb-4">Mengapa Support Handle?</h2>
+                <p class="text-xl max-w-3xl mx-auto">Solusi praktis untuk kamar mandi dan seluruh rumah tanpa bor atau kerusakan permukaan</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <div class="glass-card rounded-xl p-6 text-center hover:bg-forestGreen/50 transition-colors">
+                    <div class="w-16 h-16 rounded-full bg-gold flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-tools text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl mb-3">Pemasangan Instan</h3>
+                    <p>Tanpa bor, lem, atau kerumitan lainnya. Cukup tempel dan tekan untuk daya hisap maksimal!</p>
+                </div>
+                
+                <div class="glass-card rounded-xl p-6 text-center hover:bg-forestGreen/50 transition-colors">
+                    <div class="w-16 h-16 rounded-full bg-gold flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl mb-3">Material Premium</h3>
+                    <p>Terbuat dari plastik ABS tebal dengan daya tahan tinggi dan desain ergonomis untuk pegamanan nyaman</p>
+                </div>
+                
+                <div class="glass-card rounded-xl p-6 text-center hover:bg-forestGreen/50 transition-colors">
+                    <div class="w-16 h-16 rounded-full bg-gold flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-sync-alt text-2xl text-white"></i>
+                    </div>
+                    <h3 class="font-heading text-2xl mb-3">Serbaguna</h3>
+                    <p>Cocok untuk berbagai permukaan: keramik, kaca, marmer, granit, ubin, hingga permukaan logam!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="fitur" class="py-16 bg-cream">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="font-heading text-4xl text-darkGreen mb-4">Fitur Unggulan</h2>
+                <p class="text-xl text-forestGreen max-w-3xl mx-auto">Semua kelebihan yang membuat Support Handle jadi pilihan utama keluarga Indonesia</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="flex">
+                    <div class="text-gold text-3xl mr-4 mt-1">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-xl mb-2">Daya Hisap Super Kuat</h3>
+                        <p>Teknologi vakum dengan kekuatan hisap hingga 30kg per handle, aman digunakan seluruh anggota keluarga</p>
+                    </div>
+                </div>
+                
+                <div class="flex">
+                    <div class="text-gold text-3xl mr-4 mt-1">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-xl mb-2">Anti Slip Grip</h3>
+                        <p>Desain pegangan bergelombang dengan material anti slip untuk pegamanan maksimal bahkan saat basah</p>
+                    </div>
+                </div>
+                
+                <div class="flex">
+                    <div class="text-gold text-3xl mr-4 mt-1">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-xl mb-2">Desain Minimalis Modern</h3>
+                        <p>Elegant white finish yang cocok dengan segala jenis dekorasi kamar mandi dan interior rumah Anda</p>
+                    </div>
+                </div>
+                
+                <div class="flex">
+                    <div class="text-gold text-3xl mr-4 mt-1">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-xl mb-2">Portable & Praktis</h3>
+                        <p>Mudah dipasang, dilepas, dan dipindahkan ke mana saja tanpa meninggalkan bekas atau merusak permukaan</p>
+                    </div>
+                </div>
+                
+                <div class="flex">
+                    <div class="text-gold text-3xl mr-4 mt-1">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-xl mb-2">Multi Fungsi</h3>
+                        <p>Tak hanya kamar mandi, bisa juga untuk kamar tidur, dapur, ruang cuci, atau sebagai pegaman untuk lansia</p>
+                    </div>
+                </div>
+                
+                <div class="flex">
+                    <div class="text-gold text-3xl mr-4 mt-1">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-semibold text-xl mb-2">Garansi Kepuasan</h3>
+                        <p>Garansi uang kembali jika barang tidak sesuai dengan deskripsi atau ada kerusakan selama pengiriman</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimoni" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-4xl text-darkGreen mb-4">Testimoni Pelanggan</h2>
+                <p class="text-xl text-forestGreen max-w-3xl mx-auto">Berdasarkan lebih dari <span class="font-bold">500+ rekomendasi di Facebook</span></p>
+            </div>
+            
+            <!-- Testimonials Container -->
+            <div class="max-w-6xl mx-auto relative">
+                <!-- Testimonial Carousel -->
+                <div class="overflow-hidden relative">
+                    <div class="flex transition-transform duration-500" id="testimonial-container">
+                        <!-- Testimonial cards will be injected by JavaScript -->
+                    </div>
+                    
+                    <!-- Navigation Arrows -->
+                    <button class="absolute top-1/2 left-4 transform -translate-y-1/2 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg z-10 text-darkGreen">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="absolute top-1/2 right-4 transform -translate-y-1/2 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg z-10 text-darkGreen">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+                
+                <!-- Indicators -->
+                <div class="flex justify-center space-x-2 mt-8">
+                    <div class="dot-indicator active"></div>
+                    <div class="dot-indicator"></div>
+                    <div class="dot-indicator"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="harga" class="py-16 bg-gradient-to-b from-white to-cream">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-4xl text-darkGreen mb-4">Pilihan Paket</h2>
+                <p class="text-xl text-forestGreen max-w-3xl mx-auto">Dapatkan harga terbaik untuk kemudahan dan keselamatan seluruh keluarga</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="bg-white rounded-xl p-8 shadow-lg border-2 border-gold relative">
+                    <div class="absolute top-4 right-4 bg-gold text-white py-1 px-4 rounded-full font-bold">
+                        TERLARIS
+                    </div>
+                    
+                    <h3 class="font-heading text-2xl text-center mb-6">Paket Hemat</h3>
+                    
+                    <div class="text-center mb-6">
+                        <span class="text-4xl font-bold text-gold">1x</span>
+                        <p class="text-gray-600">Support Handle</p>
+                    </div>
+                    
+                    <div class="text-center mb-6">
+                        <div class="text-gray-500 text-sm line-through">Rp 217.000</div>
+                        <div class="text-3xl font-bold text-darkGreen">Rp 174.000</div>
+                    </div>
+                    
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>1 Pegangan Support Handle Premium</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Daya hisap hingga 30kg</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>Gratis panduan penggunaan</span>
+                        </li>
+                    </ul>
+                    
+                    <a href="#pesan" class="btn-primary w-full text-center">
+                        <i class="fas fa-shopping-cart mr-2"></i> Pesan Sekarang
+                    </a>
+                </div>
+    </section>
+
+    <!-- Order Section -->
+    <section id="pesan" class="py-16 bg-forestGreen text-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-heading text-4xl mb-4">Pesan Sekarang!</h2>
+                <p class="text-xl max-w-3xl mx-auto">
+                    Stok terbatas! Jangan kehabisan Support Handle yang sudah membantu lebih dari <span class="font-bold">10,000 keluarga Indonesia</span>
+                </p>
+            </div>
+            
+            <div class="order-form-glass rounded-xl p-6 max-w-4xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="font-heading text-2xl mb-4">Spesifikasi Produk</h3>
+                        <ul class="space-y-3 mb-6">
+                            <li class="flex items-start">
+                                <i class="fas fa-ruler-combined text-gold mr-2 mt-1"></i>
+                                <span>Ukuran: Panjang 28,5cm, Lebar 9,5cm</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-weight text-gold mr-2 mt-1"></i>
+                                <span>Material: Plastik ABS berkualitas premium</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-gold mr-2 mt-1"></i>
+                                <span>Daya hisap: Mencapai 30kg per handle</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-vector-square text-gold mr-2 mt-1"></i>
+                                <span>Permukaan cocok: Keramik, kaca, marmer, logam</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-tint text-gold mr-2 mt-1"></i>
+                                <span>Tahan air dan kelembaban tinggi</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-sync-alt text-gold mr-2 mt-1"></i>
+                                <span>Dapat digunakan berulang kali</span>
+                            </li>
+                        </ul>
+                        
+                        <div class="bg-white/20 rounded-lg p-4">
+                            <h4 class="font-bold mb-2">📦 Pengiriman Hari Ini</h4>
+                            <p>Pesan sebelum jam 15.00 WIB, barang akan dikirim hari ini juga</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h3 class="font-heading text-2xl mb-4">Form Pemesanan</h3>
+                        <div class="bg-white text-gray-800 p-6 rounded-xl">
+                            <!-- OrderOnline Form Integration -->
+                            <div class="ooef">
+                                <form class="orderonline-embed-form" data-username="vera" data-product-slug="support-handle" data-product-id="68abdc1b5b2bc821c50c168c" id="oo-embed-form-support-handle-3389" data-origin="orderonline">
+                                    <div class="ooef-loader">
+                                        <style>
+                                            .ooef-loader {
+                                                visibility: hidden;
+                                                opacity: 0;
+                                                position: absolute;
+                                                left: 0;
+                                                right: 0;
+                                                top: 0;
+                                                bottom: 0;
+                                                display: flex;
+                                                justify-content: center;
+                                                align-items: center;
+                                                flex-direction: column;
+                                                animation: ooLoadingIn 10s ease;
+                                                -webkit-animation: ooLoadingIn 10s ease;
+                                                animation-fill-mode: forwards;
+                                                overflow: hidden
+                                            }
+
+                                            @keyframes ooLoadingIn {
+                                                0% {
+                                                    visibility: hidden;
+                                                    opacity: 0
+                                                }
+                                                20% {
+                                                    visibility: visible;
+                                                    opacity: 0
+                                                }
+                                                100% {
+                                                    visibility: visible;
+                                                    opacity: 1
+                                                }
+                                            }
+
+                                            @-webkit-keyframes ooLoadingIn {
+                                                0% {
+                                                    visibility: hidden;
+                                                    opacity: 0
+                                                }
+                                                20% {
+                                                    visibility: visible;
+                                                    opacity: 0
+                                                }
+                                                100% {
+                                                    visibility: visible;
+                                                    opacity: 1
+                                                }
+                                            }
+
+                                            .ooef-loader>div,
+                                            .ooef-loader>div:after {
+                                                border-radius: 50%;
+                                                width: 2.5rem;
+                                                height: 2.5rem
+                                            }
+
+                                            .ooef-loader>div {
+                                                font-size: 10px;
+                                                position: relative;
+                                                text-indent: -9999em;
+                                                border: .25rem solid #f5f5f5;
+                                                border-left: .25rem solid #55c4cf;
+                                                -webkit-transform: translateZ(0);
+                                                -ms-transform: translateZ(0);
+                                                transform: translateZ(0);
+                                                -webkit-animation: ooLoading 1.1s infinite linear;
+                                                animation: ooLoading 1.1s infinite linear
+                                            }
+
+                                            .ooef-loader.error>div {
+                                                border-left: .25rem solid #ff4500;
+                                                animation-duration: 5s
+                                            }
+
+                                            @-webkit-keyframes ooLoading {
+                                                0% {
+                                                    -webkit-transform: rotate(0);
+                                                    transform: rotate(0)
+                                                }
+                                                100% {
+                                                    -webkit-transform: rotate(360deg);
+                                                    transform: rotate(360deg)
+                                                }
+                                            }
+
+                                            @keyframes ooLoading {
+                                                0% {
+                                                    -webkit-transform: rotate(0);
+                                                    transform: rotate(0)
+                                                }
+                                                100% {
+                                                    -webkit-transform: rotate(360deg);
+                                                    transform: rotate(360deg)
+                                                }
+                                            }
+                                        </style>
+                                        <div aria-live="polite" role="status">
+                                            <div>Loading...</div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            
+                            <div class="mt-6">
+
+                                <p class="text-sm text-gray-600">Pembayaran bank transfer langsung diproses hari ini</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="lightbox-close">&times;</span>
+        <img id="lightbox-img" src="" alt="" class="lightbox-content">
+    </div>
+    
+    <!-- Sticky CTA -->
+    <div class="sticky-cta">
+        <a href="#pesan" class="btn-primary flex items-center">
+            <i class="fas fa-shopping-cart mr-2"></i> Pesan Sekarang
+        </a>
+    </div>
+    
+    <script>
+        // Testimonials Data
+        const testimonials = [
+            {
+                name: "rosyidah961",
+                rating: 5,
+                avatar: "https://i.pinimg.com/736x/f2/b9/09/f2b909e0f1b6f459a265c62278d30a9e.jpg",
+                media: "https://down-id.img.susercontent.com/file/7a1bac61baa149a55cb4f5bcedb593ad.webp",
+                text: "trimakasih barang ori dan bagus, langsung beli 2 pcs 🥳🥳"
+            },
+            {
+                name: "riski chyo98",
+                rating: 5,
+                avatar: "https://i.pinimg.com/1200x/8d/63/38/8d6338643e4cd5b228e9f2069b9a389c.jpg",
+                media: "https://down-id.img.susercontent.com/file/5e5d137ba5361ce4ba527e5b90df5b51.webp",
+                text: "Coba2 pakai handle kamar mandi ini karena malas nge bor dinding keramik. Awalnya beli 1 tnyata useful 👍, jadi beli lagi 1 utk sisi dinding yg lain"
+            },
+            {
+                name: "revan saputra",
+                rating: 5,
+                avatar: "https://i.pinimg.com/1200x/a9/ba/24/a9ba24a441862cdf9b69cd8e87248be1.jpg",
+                media: "https://down-id.img.susercontent.com/file/id-11134103-7rbk0-m8cqx8ujo1gea0.webp",
+                text: "berfungsi dengan baik dgn daya rekat sesuai deskripsi, sangat membantu utk lansia di kamar mandi"
+            },
+            {
+                name: "sari_dewi",
+                rating: 5,
+                avatar: "https://randomuser.me/api/portraits/women/65.jpg",
+                media: "https://down-id.img.susercontent.com/file/id-11134207-23020-hajw6l1b9vnv8a.webp",
+                text: "Setelah beli 2 minggu lalu, akhirnya beli lagi untuk hadiah orang tua. Pegangannya kuat dan mudah dipasang"
+            }
+        ];
+        
+        // Social Proof Data
+        const customerNames = [
+            "Vina", "Dina", "Kartika", "Lestari", "Putri", 
+            "Maya Sari", "Rani", "Permata", "Lestari F"
+        ];
+        
+        const customerCities = [
+            "Jakarta", "Surabaya", "Bandung", "Medan", "Bekasi", 
+            "Tangerang", "Depok", "Semarang"
+        ];
+        
+        // Functions for Testimonials Carousel
+        function renderTestimonials() {
+            const container = document.getElementById('testimonial-container');
+            let html = '';
+            
+            testimonials.forEach((testimonial, index) => {
+                let stars = '';
+                for(let i = 0; i < testimonial.rating; i++) {
+                    stars += '<i class="fas fa-star text-yellow-400"></i>';
+                }
+                
+                html += `
+                <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 px-4">
+                    <div class="bg-white rounded-xl shadow p-5 h-full">
+                        <div class="flex items-center mb-4">
+                            <img src="${testimonial.avatar}" alt="${testimonial.name}" class="testimonial-avatar">
+                            <div class="ml-3">
+                                <h4 class="font-semibold">${testimonial.name}</h4>
+                                <div class="flex">
+                                    ${stars}
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p class="text-gray-600 mb-4">"${testimonial.text}"</p>
+                        
+                        <div class="flex items-center justify-between">
+                            <div class="text-xs text-gray-500">${Math.floor(Math.random() * 14) + 1} hari yang lalu</div>
+                            <img src="${testimonial.media}" alt="Ulasan ${testimonial.name}" class="testimonial-thumbnail" data-full="${testimonial.media}">
+                        </div>
+                    </div>
+                </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            
+            // Add event listeners to thumbnails
+            document.querySelectorAll('.testimonial-thumbnail').forEach(thumb => {
+                thumb.addEventListener('click', () => {
+                    document.getElementById('lightbox-img').src = thumb.dataset.full;
+                    document.getElementById('lightbox').style.display = 'flex';
+                });
+            });
+        }
+        
+        // Function for Social Proof Popup
+        function showSocialProof() {
+            const randomName = customerNames[Math.floor(Math.random() * customerNames.length)];
+            const randomCity = customerCities[Math.floor(Math.random() * customerCities.length)];
+            const randomTime = Math.floor(Math.random() * 14) + 1;
+            
+            document.getElementById('customer-name').textContent = randomName;
+            document.getElementById('customer-city').textContent = randomCity;
+            document.getElementById('customer-time').textContent = `Sekitar ${randomTime} menit yang lalu`;
+            
+            const popup = document.getElementById('social-proof');
+            popup.classList.add('slide-in-right');
+            popup.style.display = 'block';
+            
+            // Remove the animation class after it ends to restart next time
+            setTimeout(() => {
+                popup.classList.remove('slide-in-right');
+            }, 600);
+            
+            // Hide after 5 seconds
+            setTimeout(() => {
+                popup.style.display = 'none';
+            }, 5000);
+        }
+        
+        // DOM Ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Render testimonials
+            renderTestimonials();
+            
+            // Setup lightbox closing
+            document.getElementById('lightbox').addEventListener('click', function(e) {
+                if (e.target === this || e.target.className === 'lightbox-close') {
+                    this.style.display = 'none';
+                }
+            });
+            
+            // Show first social proof after 3 seconds, then every 8 seconds
+            setTimeout(showSocialProof, 3000);
+            setInterval(showSocialProof, 8000);
+            
+            // Stock timer effect
+            let stockCount = 9;
+            const stockElements = document.querySelectorAll('#stock-count, #hero-stock-count');
+            
+            // Visitor count simulation
+            const visitorElement = document.getElementById('visitor-count');
+            let visitorCount = 124;
+            
+            setInterval(() => {
+                // Randomly change visitor count between -5 and +10
+                const change = Math.floor(Math.random() * 16) - 5;
+                visitorCount = Math.max(80, visitorCount + change);
+                visitorElement.textContent = visitorCount;
+            }, 15000);
+            
+            // Random stock decrease occasionally
+            setInterval(() => {
+                if (Math.random() > 0.7 && stockCount > 0) {
+                    stockCount--;
+                    stockElements.forEach(el => {
+                        el.textContent = stockCount;
+                    });
+                    
+                    // Add animation effect
+                    document.getElementById('stock-count').parentElement.classList.add('animate-pulse');
+                    setTimeout(() => {
+                        document.getElementById('stock-count').parentElement.classList.remove('animate-pulse');
+                    }, 1000);
+                }
+            }, 20000);
+            
+            // OrderOnline Integration Code
+            if (typeof xLogError != 'function') {
+                var xLogError = function (error) {
+                    var req = new XMLHttpRequest();
+                    var payload = JSON.stringify({ 
+                        url: document.location.href, 
+                        line: error.line, 
+                        stack: error.stack 
+                    });
+                    var params = 'message=' + encodeURIComponent(error.name) + '&payload=' + encodeURIComponent(payload) + '&type=embed&level=error';
+                    req.open('POST', 'https://api.orderonline.id/log', true);
+                    req.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+                    req.send(params);
+                };
+            }
+            
+            try {
+                if (typeof xEmbedScript != 'function') {
+                    var xEmbedScript = function () {
+                        !function(w, d, e, v, id, t, s) {
+                            if (d.getElementById(id)) return;
+                            t = d.createElement(e);
+                            t.async = !0;
+                            t.src = v;
+                            t.id = id;
+                            s = d.getElementsByTagName(e)[0];
+                            s.parentNode.insertBefore(t, s);
+                        }(window, document, 'script', 'https://cdn.orderonline.id/js/embed-v2-slim.min.js?v=8.0.4', 'oo-embed-js');
+                    };
+                }
+                
+                if (typeof xEmbedInit != 'function') {
+                    var xEmbedInit = function (w, n) {
+                        if (w.ooe) return;
+                        n = w.ooe = function() {
+                            n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+                        };
+                        if (!w._ooe) w._ooe = n;
+                        n.push = n;
+                        n.loaded = !0;
+                        n.version = '8.0.4';
+                        n.queue = [];
+                    };
+                }
+                
+                xEmbedInit(window);
+                ooe('setup', 'redirect', 'https://vera.orderonline.id');
+                ooe('init', '5f1a7807a9bf807d6c63d963', '68abdc1b5b2bc821c50c168c', '68abdc1b5b2bc821c50c168d', 'oo-embed-form-support-handle-3389', {
+                    "mode": "page",
+                    "action": "Klik untuk pemesanan",
+                    "title": "Form Pemesanan",
+                    "triggerPixel": true,
+                    "triggerGtm": true
+                });
+                
+                if (!window.jQuery) {
+                    !function(w, d, e, v, id, t, s) {
+                        if (d.getElementById(id)) return;
+                        t = d.createElement(e);
+                        t.async = !0;
+                        t.src = v;
+                        t.id = id;
+                        t.addEventListener('load', xEmbedScript);
+                        s = d.getElementsByTagName(e)[0];
+                        s.parentNode.insertBefore(t, s);
+                    }(window, document, 'script', 'https://cdn.orderonline.id/js/vendor/jquery.min.js', 'oo-embed-jquery');
+                } else {
+                    xEmbedScript();
+                }
+            } catch (e) {
+                xLogError(e);
+                throw e;
+            }
+        });
+    </script>
+</body>
+</html>
